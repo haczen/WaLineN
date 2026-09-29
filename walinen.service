@@ -1,0 +1,17 @@
+[Unit]
+Description=WaLineN 通用渠道分发网关 (port 8792)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/WaLineN
+# nvm 安装的 node，升级 node 后记得同步此路径；系统包安装的 node 改成 /usr/bin/node
+ExecStart=/root/.nvm/versions/node/v22.23.2/bin/node server.js
+Restart=always
+RestartSec=5
+User=root
+Environment=TZ=Asia/Shanghai
+
+[Install]
+WantedBy=multi-user.target

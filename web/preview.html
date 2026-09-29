@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WaLineN · 主题试衣间</title>
+<style>
+/* ============ 基础 ============ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { color-scheme: dark light; }
+body { font-family: -apple-system, "SF Pro SC", "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px; line-height: 1.65; min-height: 100vh; }
+.mono { font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 12px; }
+.muted { color: var(--muted); }
+
+/* ============ 主题 A · 纯白极简 ============ */
+.t-a {
+  --bg: #F7F8FA; --surface: #FFFFFF; --surface2: #F3F4F6;
+  --border: #E6E8EE; --text: #1A2233; --muted: #6B7280;
+  --acc: #4F46E5; --acc-soft: #EEF2FF; --acc-text: #FFF;
+  --ok: #15803D; --err: #DC2626; --run: #B45309;
+  --shadow: 0 1px 3px rgba(16, 24, 40, .06);
+  --grad: linear-gradient(135deg, #4F46E5, #6366F1);
+  background: var(--bg);
+}
+/* ============ 主题 B · 冷灰科技 ============ */
+.t-b {
+  --bg: #0E1013; --surface: #16191E; --surface2: #1D2127;
+  --border: #272C35; --text: #F3F4F6; --muted: #8B929E;
+  --acc: #3B82F6; --acc-soft: rgba(59, 130, 246, .13); --acc-text: #FFF;
+  --ok: #4ADE80; --err: #F87171; --run: #FBBF24;
+  --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset;
+  --grad: linear-gradient(135deg, #3B82F6, #60A5FA);
+  background: var(--bg);
+}
+/* ============ 主题 C · 浅色玻璃 ============ */
+.t-c {
+  --bg: #EEF1FB; --surface: rgba(255, 255, 255, .64); --surface2: rgba(255, 255, 255, .5);
+  --border: rgba(255, 255, 255, .85); --text: #2E2A52; --muted: #6E7191;
+  --acc: #6366F1; --acc-soft: rgba(99, 102, 241, .12); --acc-text: #FFF;
+  --ok: #059669; --err: #E11D48; --run: #D97706;
+  --shadow: 0 10px 34px rgba(99, 102, 241, .10);
+  --grad: linear-gradient(135deg, #6366F1, #38BDF8);
+  background:
+    radial-gradient(900px 600px at 8% -10%, rgba(147, 197, 253, .5), transparent 60%),
+    radial-gradient(800px 620px at 100% 15%, rgba(196, 181, 253, .42), transparent 55%),
+    radial-gradient(900px 700px at 45% 115%, rgba(254, 205, 211, .38), transparent 60%),
+    #EEF1FB;
+}
+.t-c .card, .t-c .side, .t-c table.idx, .t-c .login-mock {
+  backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); }
+/* ============ 主题 D · 深海蓝青 ============ */
+.t-d {
+  --bg: #071730; --surface: rgba(255, 255, 255, .045); --surface2: rgba(255, 255, 255, .08);
+  --border: rgba(148, 197, 255, .15); --text: #EAF3FF; --muted: #7E93B8;
+  --acc: #38BDF8; --acc-soft: rgba(56, 189, 248, .13); --acc-text: #04202E;
+  --ok: #34D399; --err: #FB7185; --run: #FBBF24;
+  --shadow: 0 10px 34px rgba(2, 8, 24, .5);
+  --grad: linear-gradient(135deg, #0EA5E9, #22D3EE);
+  background:
+    radial-gradient(1000px 560px at 80% -12%, rgba(14, 165, 233, .16), transparent 60%),
+    radial-gradient(800px 500px at -8% 108%, rgba(34, 211, 238, .08), transparent 55%),
+    #071730;
+}
+.t-d .card, .t-d .side, .t-d table.idx, .t-d .login-mock {
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+/* ============ 主题 E · 咖啡拿铁 ============ */
+.t-e {
+  --bg: #F3EBE0; --surface: #FDF9F2; --surface2: #F1E8DA;
+  --border: #E3D7C4; --text: #3B2E22; --muted: #8C7A67;
+  --acc: #A5642E; --acc-soft: #F3E3D3; --acc-text: #FFF;
+  --ok: #4F7A3A; --err: #B3492F; --run: #B97A24;
+  --shadow: 0 8px 26px rgba(80, 60, 40, .10);
+  --grad: linear-gradient(135deg, #B0703C, #8B5E34);
+  --logo1: #C08552; --logo2: #8B5E34; --logostroke: #FBF3E4;
+  background:
+    radial-gradient(800px 500px at -5% -10%, rgba(192, 133, 82, .13), transparent 55%),
+    #F3EBE0;
+}
+/* ============ 主题 F · 动漫风 ============ */
+.t-f {
+  --bg: #FDF6FA; --surface: rgba(255, 255, 255, .78); --surface2: rgba(255, 240, 246, .6);
+  --border: rgba(255, 255, 255, .95); --text: #453A55; --muted: #8E82A0;
+  --acc: #FF5C8A; --acc-soft: #FFE3EC; --acc-text: #FFF;
+  --ok: #10B981; --err: #F43F5E; --run: #F59E0B;
+  --shadow: 0 10px 30px rgba(255, 92, 138, .12);
+  --grad: linear-gradient(135deg, #FF6B9D, #FFA26B);
+  --logo1: #FF5C8A; --logo2: #FFA26B; --logostroke: #FFF6FA;
+  background:
+    radial-gradient(900px 560px at 0% -10%, rgba(147, 210, 255, .55), transparent 60%),
+    radial-gradient(860px 560px at 100% 10%, rgba(255, 183, 213, .55), transparent 55%),
+    radial-gradient(760px 620px at 50% 115%, rgba(255, 214, 165, .4), transparent 60%),
+    #FDF6FA;
+}
+.t-f .card, .t-f .side, .t-f table.idx, .t-f .login-mock {
+  backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%); }
+.t-f .btn, .t-f input, .t-f select, .t-f .tag, .t-f nav a { border-radius: 999px; }
+.t-f .card, .t-f table.idx { border-radius: 18px; }
+.t-f .sec-head h2::before { content: "✦"; width: auto; height: auto; border-radius: 0; background: none;
+  color: var(--acc); filter: drop-shadow(0 0 6px rgba(255, 92, 138, .6)); font-size: 14px; }
+
+/* Logo 渐变随主题 */
+#lg .s1 { stop-color: var(--logo1, #6366F1); }
+#lg .s2 { stop-color: var(--logo2, #38BDF8); }
+.wv { stroke: var(--logostroke, #0B0F17); }
+.t-a { --logo1: #4F46E5; --logo2: #6366F1; --logostroke: #FFF; }
+.t-b { --logo1: #3B82F6; --logo2: #60A5FA; --logostroke: #0E1013; }
+.t-c { --logo1: #6366F1; --logo2: #38BDF8; --logostroke: #EEF1FB; }
+
+/* ============ 布局 ============ */
+body { background: var(--bg); color: var(--text); transition: background .25s; }
+.layout { display: flex; min-height: 100vh; }
+.side { width: 228px; flex: none; padding: 20px 14px 16px; display: flex; flex-direction: column;
+  background: var(--surface); border-right: 1px solid var(--border); }
+.brand { display: flex; align-items: center; gap: 10px; padding: 2px 10px 18px; font-size: 20px; font-weight: 800; }
+.brand em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.brand svg { width: 28px; height: 28px; filter: drop-shadow(0 0 10px var(--acc-soft)); }
+nav { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+nav a { display: flex; gap: 10px; align-items: center; padding: 9px 12px; border-radius: 10px;
+  color: var(--muted); text-decoration: none; font-size: 13.5px; border: 1px solid transparent; }
+nav a svg { width: 15px; height: 15px; }
+nav a:hover { color: var(--text); background: var(--surface2); }
+nav a.on { color: var(--acc); background: var(--acc-soft); border-color: color-mix(in srgb, var(--acc) 30%, transparent);
+  font-weight: 600; }
+.side-foot { border-top: 1px solid var(--border); padding-top: 12px; font-size: 12px; color: var(--muted); }
+.side-foot b { color: var(--text); }
+.side-foot .bal b { color: var(--acc); font-size: 15px; }
+.main { flex: 1; min-width: 0; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 30px 34px 120px; }
+@media (max-width: 860px) { .layout { flex-direction: column; } .side { width: auto; } }
+
+/* ============ 组件 ============ */
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; margin: 26px 0 12px; }
+.sec-head h2 { font-size: 16px; font-weight: 650; display: flex; align-items: center; gap: 9px; }
+.sec-head h2::before { content: ""; width: 4px; height: 15px; border-radius: 3px; background: var(--grad); }
+.sec-head .sub { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px;
+  box-shadow: var(--shadow); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.stat .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat .v small { font-size: 13px; color: var(--muted); font-weight: 400; }
+.stat .k { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.stat.hot .v { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+table.idx { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+table.idx th { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  text-align: left; padding: 10px 12px; background: var(--surface2); border-bottom: 1px solid var(--border); }
+table.idx td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+table.idx tr:last-child td { border-bottom: 0; }
+table.idx tr:hover td { background: var(--surface2); }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+.s-done { color: var(--ok); } .s-done .dot { background: var(--ok); }
+.s-failed { color: var(--err); } .s-failed .dot { background: var(--err); }
+.s-running { color: var(--run); } .s-running .dot { background: var(--run); animation: pu 1.2s infinite; }
+@keyframes pu { 50% { opacity: .3; } }
+.tag { font-size: 10.5px; border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px;
+  color: var(--muted); background: var(--surface2); white-space: nowrap; }
+.tag.acc { color: var(--acc); border-color: color-mix(in srgb, var(--acc) 35%, transparent); }
+.btn { font-size: 12.5px; font-weight: 550; padding: 8px 16px; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); transition: .15s; }
+.btn:hover { background: var(--surface2); }
+.btn.pri { background: var(--grad); color: var(--acc-text); border: none; font-weight: 650;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--acc) 35%, transparent); }
+.btn.pri:hover { filter: brightness(1.08); }
+.btn.mini { padding: 4px 11px; font-size: 11.5px; }
+.btn.on { background: var(--acc-soft); border-color: color-mix(in srgb, var(--acc) 45%, transparent); color: var(--acc); }
+input, select { font: inherit; font-size: 13.5px; color: var(--text); background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; outline: none; }
+input:focus, select:focus { border-color: var(--acc); }
+label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 5px; }
+.field { display: flex; flex-direction: column; }
+.row { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end; }
+.login-mock { max-width: 360px; margin-top: 12px; }
+.login-mock .btn { width: 100%; margin-top: 10px; padding: 10px; }
+.toast { position: fixed; bottom: 84px; left: 50%; transform: translateX(-50%); font-size: 12.5px;
+  padding: 9px 20px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); box-shadow: var(--shadow); }
+
+/* ============ 主题切换器 ============ */
+.switcher { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 99;
+  display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 16px;
+  background: rgba(17, 20, 28, .82); border: 1px solid rgba(255, 255, 255, .14);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .45); flex-wrap: wrap; justify-content: center; max-width: 94vw; }
+.switcher .tip { color: #B7C0D4; font-size: 11px; letter-spacing: .05em; padding: 0 6px; }
+.switcher button { font: inherit; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06); color: #E6EAF3; cursor: pointer; }
+.switcher button:hover { background: rgba(255, 255, 255, .12); }
+.switcher button.on { background: linear-gradient(135deg, #6366F1, #38BDF8); border: none; color: #fff; }
+</style>
+</head>
+<body class="t-a">
+
+<div class="layout">
+  <aside class="side">
+    <div class="brand">
+      <svg viewBox="0 0 32 32"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="s1" stop-color="#6366F1"/><stop offset="1" class="s2" stop-color="#38BDF8"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path class="wv" d="M6 20c3-6 6-6 9 0s6 6 9 0" stroke="#0B0F17" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>
+      Wa<em>Line</em>
+    </div>
+    <nav>
+      <a class="on" href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>创作</a>
+      <a href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>概览</a>
+      <a href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>渠道</a>
+      <a href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3.5 20c.6-3.3 2.9-5 5.5-5s4.9 1.7 5.5 5"/></svg>用户</a>
+      <a href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/></svg>任务</a>
+      <a href="javascript:void 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c.8-4 4-6.2 7.5-6.2s6.7 2.2 7.5 6.2"/></svg>个人中心</a>
+    </nav>
+    <div class="side-foot">
+      <div><b>admin</b> · admin</div>
+      <div class="bal">余额 <b>1,280</b> 积分</div>
+    </div>
+  </aside>
+
+  <div class="main"><div class="wrap">
+    <div class="sec-head"><h2>概览</h2><span class="sub">Overview</span></div>
+    <div class="stats">
+      <div class="card stat"><div class="v">12</div><div class="k">用户 · 代理 3</div></div>
+      <div class="card stat"><div class="v">86</div><div class="k">24H 任务 · 成 79</div></div>
+      <div class="card stat hot"><div class="v">2,460</div><div class="k">24H 计费积分</div></div>
+      <div class="card stat"><div class="v">9,999<small>+</small></div><div class="k">在兑积分余额</div></div>
+    </div>
+
+    <div class="sec-head"><h2>任务台账</h2><span class="sub">Jobs</span></div>
+    <table class="idx">
+      <tr><th>编号</th><th>类型</th><th>模型</th><th>状态</th><th>计费</th><th>时间</th></tr>
+      <tr><td class="mono">a3f10c9e21</td><td><span class="tag acc">video</span></td><td class="mono">sd2-mini</td>
+        <td><span class="s-running"><i class="dot"></i>running</span></td><td>8*</td><td class="muted">09-10 18:04</td></tr>
+      <tr><td class="mono">b7e22d84ff</td><td><span class="tag">image</span></td><td class="mono">gpt-image-2-4k</td>
+        <td><span class="s-done"><i class="dot"></i>done</span></td><td>4</td><td class="muted">09-10 17:55</td></tr>
+      <tr><td class="mono">c1d90a5b73</td><td><span class="tag">image</span></td><td class="mono">nanobanana2</td>
+        <td><span class="s-failed"><i class="dot"></i>failed</span></td><td class="muted">2（未扣）</td><td class="muted">09-10 17:41</td></tr>
+    </table>
+
+    <div class="sec-head"><h2>组件效果</h2><span class="sub">Controls</span></div>
+    <div class="card">
+      <div class="row" style="margin-bottom:16px">
+        <button class="btn pri">生 成</button>
+        <button class="btn">保 存</button>
+        <button class="btn on">生图</button>
+        <button class="btn mini">体检</button>
+        <button class="btn mini">取消</button>
+        <span class="tag acc">video</span><span class="tag">image</span><span class="tag">unlimited</span>
+      </div>
+      <div class="row">
+        <div class="field"><label>提示词 Prompt</label><input value="@图1 里的猫在月球上，电影感" style="width:280px"></div>
+        <div class="field"><label>模型</label><select><option>gpt20 · 1分/张</option><option>ltx25pro · 1分/秒</option></select></div>
+      </div>
+    </div>
+
+    <div class="sec-head"><h2>登录页</h2><span class="sub">Login</span></div>
+    <div class="card login-mock">
+      <div class="field" style="margin-bottom:12px"><label>账户</label><input value="admin"></div>
+      <div class="field"><label>密码</label><input type="password" value="········"></div>
+      <button class="btn pri">登 录</button>
+    </div>
+  </div></div>
+</div>
+
+<div class="toast">已保存定价与兜底</div>
+
+<div class="switcher">
+  <span class="tip">点选主题（或按 1-6）：</span>
+  <button data-t="t-a" class="on">A · 纯白极简</button>
+  <button data-t="t-b">B · 冷灰科技</button>
+  <button data-t="t-c">C · 浅色玻璃</button>
+  <button data-t="t-d">D · 深海蓝青</button>
+  <button data-t="t-e">E · 咖啡拿铁</button>
+  <button data-t="t-f">F · 动漫风</button>
+</div>
+
+<script>
+const btns = document.querySelectorAll('.switcher button');
+function setTheme(t) {
+  document.body.className = t;
+  btns.forEach(b => b.classList.toggle('on', b.dataset.t === t));
+  try { localStorage.setItem('wl-preview', t); } catch (e) {}
+}
+btns.forEach(b => b.onclick = () => setTheme(b.dataset.t));
+document.addEventListener('keydown', e => {
+  const i = '123456'.indexOf(e.key);
+  if (i >= 0) setTheme(btns[i].dataset.t);
+});
+try { const t = localStorage.getItem('wl-preview'); if (t) setTheme(t); } catch (e) {}
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# 运行时状态（含明文密钥/用户数据，绝不入库）
+data/
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+node_modules/
